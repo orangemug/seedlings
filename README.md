@@ -12,58 +12,17 @@ Create some seed data, via json in a flat format that can be batch loaded
 [dm-dev]:      https://david-dm.org/orangemug/seedlings#info=devDependencies
 
 
-## Example
-You have two files with seed data
+## Usage
+Seedlings will modify a json structure replacing any keys of the format `{%type:id%}`
 
-`./users.json`
-```json
-[
-  {
-    "id": "{%users.id.1%}",
-    "name": "Bob"
-  }
-]
-```
+Where
 
-`./posts.json`
-```json
-[
-  {
-    "id": "{%posts.id.1%}",
-    "owner": "{%users.id.1%}",
-    "title": "Hello World",
-    "content": "Hi everyone!"
-  }
-]
-```
+ * `id` is any string and the same string will produce the same resulting id in the final output
+ * `type` groups the `id` for example in `incremental` mode the first of each _type_ will reset to zero
 
-Notice the special keys of the format
+Now lets create a new instance of seedlings to show what that all means. Here we'll be using the incremental id generator
 
-```
-{%type:id%}
-```
-
-Where `id` is any string. The same string will produce the same resulting id in the final output
-
-`type` groups the `id` for example in `incremental` mode the following
-
-```json
-{
-  "id":   "{%users:1%}",
-  "post": "{%posts:1%}"
-}
-```
-
-Would become
-
-```json
-{
-  "id":   1,
-  "post": 1
-}
-```
-
-Now lets create a new instance of seedlings, using the incremental id generator
+Notice in the below the change of _type_ will reset the index to zero (`{%posts:1%}` and `{%users:1%}`)
 
 ```js
 var seedlings = require("seedlings");
@@ -73,12 +32,20 @@ var out1 = seeder([
   {
     "id": "{%users:1%}",
     "name": "Bob"
+  },
+  {
+    "id": "{%users:2%}",
+    "name": "Jane"
   }
 ]);
 assert.deepEqual(out1, [
   {
     "id": 0,
     "name": "Bob"
+  },
+  {
+    "id": 1,
+    "name": "Jane"
   }
 ]);
 
@@ -100,25 +67,18 @@ assert.deepEqual(out2, [
 ]);
 ```
 
-If you're loading into a NoSQL database chances are you don't need to load each file as a separate batch
 
 ## API
 Create a new instance with
 
     var seeder = seedlings([id_generator_function]);
 
-Where `id_generator_function` is any function that returns a unique identifier
+Where `id_generator_function` is one of
 
+ * `seedlings/generator/incremental` (default)
+ * `seedlings/generator/uuid`
 
-## `id_generator_function`
-The lib comes with 2 `id_generator_function`s built in
-
- * incremental (default)
- * uuid 
-
-Both incremental and uuid will product the same output given the same input
-
-To use the uuid `id_generator_function`
+Both incremental and uuid will product the same output given the same input. Below is an example using the uuid generator
 
 ```js
 var seeder = seedlings(require("seedlings/generators/uuid"))
