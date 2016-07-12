@@ -64,4 +64,17 @@ describe("core", function() {
     ])
   });
 
+  it("should leave object uneffected", function() {
+    var seeder = core();
+    var out = seeder([
+      {"test1": 0},
+      {"test2": 1}
+    ])
+
+    assert.deepEqual(out, [
+      {"test1": 0},
+      {"test2": 1}
+    ])
+  });
+
 })
