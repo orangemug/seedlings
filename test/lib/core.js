@@ -21,7 +21,7 @@ describe("core", function() {
         "id": 0,
       },
       {
-        "id": 1,
+        "id": 0,
         "owner": 0
       }
     ])
