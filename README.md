@@ -2,16 +2,16 @@
 Create some seed data, via json in a flat format that can be batch loaded
 
 [![stability-unstable](https://img.shields.io/badge/stability-unstable-yellow.svg)][stability]
-[![Build Status](https://circleci.com/gh/orangemug/sql-stamp.png?style=shield)][circleci]
-[![Test Coverage](https://codeclimate.com/github/orangemug/sql-stamp/badges/coverage.svg)][codeclimate]
-[![Dependency Status](https://david-dm.org/orangemug/sql-stamp.svg)][dm-prod]
-[![Dev Dependency Status](https://david-dm.org/orangemug/sql-stamp/dev-status.svg)][dm-dev]
+[![Build Status](https://circleci.com/gh/orangemug/seedlings.png?style=shield)][circleci]
+[![Test Coverage](https://codeclimate.com/github/orangemug/seedlings/badges/coverage.svg)][codeclimate]
+[![Dependency Status](https://david-dm.org/orangemug/seedlings.svg)][dm-prod]
+[![Dev Dependency Status](https://david-dm.org/orangemug/seedlings/dev-status.svg)][dm-dev]
 
 [stability]:   https://github.com/orangemug/seedlings#unstable
-[circleci]:    https://circleci.com/gh/orangemug/sql-stamp
-[codeclimate]: https://codeclimate.com/github/orangemug/sql-stamp/coverage
-[dm-prod]:     https://david-dm.org/orangemug/sql-stamp
-[dm-dev]:      https://david-dm.org/orangemug/sql-stamp#info=devDependencies
+[circleci]:    https://circleci.com/gh/orangemug/seedlings
+[codeclimate]: https://codeclimate.com/github/orangemug/seedlings/coverage
+[dm-prod]:     https://david-dm.org/orangemug/seedlings
+[dm-dev]:      https://david-dm.org/orangemug/seedlings#info=devDependencies
 
 
 ## Example
