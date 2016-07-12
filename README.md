@@ -1,4 +1,4 @@
-# seedlings
+# 🌱 seedlings
 Create some seed data, via json in a flat format that can be batch loaded
 
 [![stability-unstable](https://img.shields.io/badge/stability-unstable-yellow.svg)][stability]
