@@ -66,21 +66,34 @@ Would become
 Now lets create a new instance of seedlings, using the incremental id generator
 
 ```js
+var seedlings = require("seedlings");
 var seeder = seedlings(seedlings.incremental);
 
-var out1 = seeder.parse(require("./users.json"));
+var out1 = seeder([
+  {
+    "id": "{%users:1%}",
+    "name": "Bob"
+  }
+]);
 assert.deepEqual(out1, [
   {
-    "id": 1,
+    "id": 0,
     "name": "Bob"
   }
 ]);
 
-var out2 = seeder.parse(require("./posts.json"));
+var out2 = seeder([
+  {
+    "id": "{%posts:1%}",
+    "owner": "{%users:1%}",
+    "title": "Hello World",
+    "content": "Hi everyone!"
+  }
+]);
 assert.deepEqual(out2, [
   {
-    "id": "{%posts.id.1%}",
-    "owner": "{%users.id.1%}",
+    "id": 0,
+    "owner": 0,
     "title": "Hello World",
     "content": "Hi everyone!"
   }
@@ -96,31 +109,6 @@ Create a new instance with
 
 Where `id_generator_function` is any function that returns a unique identifier
 
-For example 
-
-We also provide a wrapped `node-uuid` that produces the same uuid on each run
-
-```js
-var outNoSQL = seeder.parse(
-  require("./posts-no-sql.json")
-  require("./users-no-sql.json")
-);
-
-assert.deepEqual(outNoSQL, [
-  {
-    "id": 1,
-    "type": "users"
-    "name": "Bob"
-  },
-  {
-    "id": "{%posts.id.1%}",
-    "type": "posts"
-    "owner": "{%users.id.1%}",
-    "title": "Hello World",
-    "content": "Hi everyone!"
-  }
-])
-```
 
 ## `id_generator_function`
 The lib comes with 2 `id_generator_function`s built in
@@ -133,12 +121,12 @@ Both incremental and uuid will product the same output given the same input
 To use the uuid `id_generator_function`
 
 ```js
-var seeder = seedlings(require("seedlings/uuid"))
+var seeder = seedlings(require("seedlings/generators/uuid"))
 var outUUID = seeder([
-  {id: "{%test.uuid%}"
+  {id: "{%test:uuid%}"}
 ])
 assert.deepEqual(outUUID, [
-  {id: "kljdksldflkdsjflkdsjflkj"}
+  {id: "01010101-0101-4101-8101-010101010101"}
 ]);
 ```
 
