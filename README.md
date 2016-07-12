@@ -69,10 +69,10 @@ assert.deepEqual(out1, [
 var out2 = seeder.parse(require("./posts.json"));
 assert.deepEqual(out2, [
   {
-    "id: "{%posts.id.1%}",
-    "owner: "{%users.id.1%}",
-    "title: "Hello World",
-    "content: "Hi everyone!"
+    "id": "{%posts.id.1%}",
+    "owner": "{%users.id.1%}",
+    "title": "Hello World",
+    "content": "Hi everyone!"
   }
 ]);
 ```
@@ -103,11 +103,11 @@ assert.deepEqual(outNoSQL, [
     "name": "Bob"
   },
   {
-    "id: "{%posts.id.1%}",
+    "id": "{%posts.id.1%}",
     "type": "posts"
-    "owner: "{%users.id.1%}",
-    "title: "Hello World",
-    "content: "Hi everyone!"
+    "owner": "{%users.id.1%}",
+    "title": "Hello World",
+    "content": "Hi everyone!"
   }
 ])
 ```
