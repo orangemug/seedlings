@@ -71,7 +71,9 @@ assert.deepEqual(out2, [
 ## API
 Create a new instance with
 
-    var seeder = seedlings([id_generator_function]);
+```js
+var seeder = seedlings(/* [id_generator_function] */);
+```
 
 Where `id_generator_function` is one of
 
