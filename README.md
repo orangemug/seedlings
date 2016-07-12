@@ -26,7 +26,7 @@ Notice in the below the change of _type_ will reset the index to zero (`{%posts:
 
 ```js
 var seedlings = require("seedlings");
-var seeder = seedlings(seedlings.incremental);
+var seeder = seedlings(require("seedlings/generators/incremental"));
 
 var out1 = seeder([
   {
