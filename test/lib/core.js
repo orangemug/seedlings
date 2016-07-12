@@ -49,14 +49,18 @@ describe("core", function() {
   it("should accept multiple args", function() {
     var seeder = core();
     var out = seeder([
-      {"test1": "{%tmp:1%}"}
+      {"test1": "{%tmp:a%}"},
+      {"test2": "{%tmp:b%}"}
     ], [
-      {"test2": "{%tmp:1%}"}
+      {"test3": "{%tmp:a%}"},
+      {"test4": "{%tmp:c%}"}
     ])
 
     assert.deepEqual(out, [
       {"test1": 0},
-      {"test2": 1}
+      {"test2": 1},
+      {"test3": 0},
+      {"test4": 2}
     ])
   });
 
