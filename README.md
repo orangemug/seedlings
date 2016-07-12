@@ -6,7 +6,7 @@ Create some seed data, via json in a flat format that can be batch loaded
 You have two files with seed data
 
 `./users.json`
-```
+```json
 [
   {
     "id": "{%users.id.1%}",
@@ -16,7 +16,7 @@ You have two files with seed data
 ```
 
 `./posts.json`
-```
+```json
 [
   {
     "id": "{%posts.id.1%}",
@@ -37,7 +37,7 @@ Where `id` is any string. The same string will produce the same resulting id in 
 
 `type` groups the `id` for example in `incremental` mode the following
 
-```
+```json
 {
   "id":   "{%users:1%}",
   "post": "{%posts:1%}"
@@ -46,7 +46,7 @@ Where `id` is any string. The same string will produce the same resulting id in 
 
 Would become
 
-```
+```json
 {
   "id":   1,
   "post": 1
