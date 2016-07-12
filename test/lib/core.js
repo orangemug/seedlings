@@ -46,4 +46,18 @@ describe("core", function() {
     ])
   });
 
+  it("should accept multiple args", function() {
+    var seeder = core();
+    var out = seeder([
+      {"test1": "{%tmp:1%}"}
+    ], [
+      {"test2": "{%tmp:1%}"}
+    ])
+
+    assert.deepEqual(out, [
+      {"test1": 0},
+      {"test2": 1}
+    ])
+  });
+
 })
