@@ -30,10 +30,28 @@ You have two files with seed data
 Notice the special keys of the format
 
 ```
-{%:id%}
+{%type:id%}
 ```
 
 Where `id` is any string. The same string will produce the same resulting id in the final output
+
+`type` groups the `id` for example in `incremental` mode the following
+
+```
+{
+  "id":   "{%users:1%}",
+  "post": "{%posts:1%}"
+}
+```
+
+Would become
+
+```
+{
+  "id":   1,
+  "post": 1
+}
+```
 
 Now lets create a new instance of seedlings, using the incremental id generator
 
@@ -104,13 +122,15 @@ Both incremental and uuid will product the same output given the same input
 
 To use the uuid `id_generator_function`
 
-    var seeder = seedlings(require("seedlings/uuid"))
-    var outUUID = seeder([
-      {id: "{%test.uuid%}"
-    ])
-    assert.deepEqual(outUUID, [
-      {id: "kljdksldflkdsjflkdsjflkj"}
-    ]);
+```js
+var seeder = seedlings(require("seedlings/uuid"))
+var outUUID = seeder([
+  {id: "{%test.uuid%}"
+])
+assert.deepEqual(outUUID, [
+  {id: "kljdksldflkdsjflkdsjflkj"}
+]);
+```
 
 
 ## License
