@@ -1,5 +1,5 @@
 module.exports = function() {
-  var idx = 0;
+  var idx = 1;
   var typeIdx = {}
   var store = {};
   return function(id, type) {
@@ -13,7 +13,7 @@ module.exports = function() {
         typeIdx[type] += 1;
       }
       else {
-        typeIdx[type] = 0;
+        typeIdx[type] = 1;
       }
 
       return store[key] = typeIdx[type];

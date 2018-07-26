@@ -40,11 +40,11 @@ var out1 = seeder([
 ]);
 assert.deepEqual(out1, [
   {
-    "id": 0,
+    "id": 1,
     "name": "Bob"
   },
   {
-    "id": 1,
+    "id": 2,
     "name": "Jane"
   }
 ]);
@@ -59,8 +59,8 @@ var out2 = seeder([
 ]);
 assert.deepEqual(out2, [
   {
-    "id": 0,
-    "owner": 0,
+    "id": 1,
+    "owner": 1,
     "title": "Hello World",
     "content": "Hi everyone!"
   }

@@ -18,11 +18,11 @@ describe("core", function() {
 
     assert.deepEqual(out, [
       {
-        "id": 0,
+        "id": 1,
       },
       {
-        "id": 0,
-        "owner": 0
+        "id": 1,
+        "owner": 1
       }
     ])
   });
@@ -39,9 +39,9 @@ describe("core", function() {
 
     assert.deepEqual(out, [
       {
-        "prefix": "prefix:0",
-        "suffix": "0:suffix",
-        "both":   "prefix:0:suffix",
+        "prefix": "prefix:1",
+        "suffix": "1:suffix",
+        "both":   "prefix:1:suffix",
       }
     ])
   });
@@ -57,23 +57,23 @@ describe("core", function() {
     ])
 
     assert.deepEqual(out, [
-      {"test1": 0},
-      {"test2": 1},
-      {"test3": 0},
-      {"test4": 2}
+      {"test1": 1},
+      {"test2": 2},
+      {"test3": 1},
+      {"test4": 3}
     ])
   });
 
   it("should leave object uneffected", function() {
     var seeder = core();
     var out = seeder([
-      {"test1": 0},
-      {"test2": 1}
+      {"test1": 1},
+      {"test2": 2}
     ])
 
     assert.deepEqual(out, [
-      {"test1": 0},
-      {"test2": 1}
+      {"test1": 1},
+      {"test2": 2}
     ])
   });
 
