@@ -68,12 +68,14 @@ describe("core", function() {
     var seeder = core();
     var out = seeder([
       {"test1": 1},
-      {"test2": 2}
+      {"test2": 2},
+      {"test3": null}
     ])
 
     assert.deepEqual(out, [
       {"test1": 1},
-      {"test2": 2}
+      {"test2": 2},
+      {"test3": null}
     ])
   });
 
